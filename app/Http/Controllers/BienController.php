@@ -26,7 +26,7 @@ class BienController extends Controller
 
     public function getCategorias(Request $request, $id){
        if($request->ajax()){
-            //$categorias = Categoria::categorias($id);
+            //$categorias = Categoria::categorias($id);asdsad
             $categorias = DB::table('categoria')->where('CodRubro','=',$id)->get();
             return response()->json($categorias);
         }
@@ -124,12 +124,12 @@ class BienController extends Controller
 
         return response()->json($bien);
     }
-    
-    
+
+
     public function ApiPostBien(Request $request){
-        
+
         $Fecha = $request->get('fechaAdquisicion');
-        
+
         $bien = new Bien;
         $bien->CodBien = $request->get('codigo');
     	$bien->Nombre = $request->get('nombre');
@@ -158,7 +158,7 @@ class BienController extends Controller
 
         $log->save();
 
-        
+
         return response()->json(1);
     }
 
