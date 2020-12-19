@@ -26,7 +26,7 @@ class BienController extends Controller
 
     public function getCategorias(Request $request, $id){
        if($request->ajax()){
-            //$categorias = Categoria::categorias($id);asdsad
+            //$categorias = Categoria::categorias($id);
             $categorias = DB::table('categoria')->where('CodRubro','=',$id)->get();
             return response()->json($categorias);
         }
